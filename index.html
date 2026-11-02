@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesundheitstafel — Tablero de Consejos Médicos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-main: #fbf1c7;
+            --bg-card: #f2e5bc;
+            --bg-surface: #ebdbb2;
+            --bg-input: #fbf1c7;
+            --border: #d5c4a1;
+            --border-strong: #bdae93;
+            --text-primary: #282828;
+            --text-secondary: #665c54;
+            --accent: #af3a03;
+            --accent-hover: #872a00;
+            --accent-green: #79740e;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #282828;
+            --bg-card: #3c3836;
+            --bg-surface: #504945;
+            --bg-input: #1d2021;
+            --border: #504945;
+            --border-strong: #665c54;
+            --text-primary: #fbf1c7;
+            --text-secondary: #d5c4a1;
+            --accent: #fe8019;
+            --accent-hover: #d65d0e;
+            --accent-green: #b8bb26;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Atkinson Hyperlegible Next', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Literata', serif;
+        }
+
+        .theme-card {
+            background-color: var(--bg-card);
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        .theme-surface {
+            background-color: var(--bg-surface);
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        .theme-input {
+            background-color: var(--bg-input);
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        .theme-text-sec {
+            color: var(--text-secondary);
+        }
+
+        .theme-accent {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#af3a03] selection:text-[#fbf1c7]">
+
+    <!-- Backdrop Overlay para el Menú Hamburguesa -->
+    <div id="menuBackdrop" onclick="toggleMenu(false)" class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300 backdrop-blur-xs"></div>
+
+    <!-- Panel Lateral Deslizable (Índice de Charlas) -->
+    <aside id="sideDrawer" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] theme-card border-r-2 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        
+        <!-- Cabecera del Drawer -->
+        <div class="p-5 theme-surface border-b-2 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-list-ul theme-accent text-lg"></i>
+                <h2 class="text-lg font-bold">Índice de Charlas</h2>
+            </div>
+            <button onclick="toggleMenu(false)" class="w-8 h-8 rounded-lg theme-card border flex items-center justify-center font-bold text-sm hover:border-[#af3a03] transition-all cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Lista de Charlas médicas -->
+        <div class="flex-grow overflow-y-auto p-4 flex flex-col gap-2">
+            <span class="text-xs font-bold theme-text-sec uppercase tracking-wider px-2 py-1">
+                Charlas Disponibles (0)
+            </span>
+            
+            <div class="p-4 text-center theme-text-sec text-xs italic">
+                Sin charlas registradas.
+            </div>
+            
+        </div>
+
+        <!-- Pie del Drawer -->
+        <div class="p-4 theme-surface border-t-2 text-center text-xs theme-text-sec flex items-center justify-center gap-2">
+            <i class="fa-solid fa-hospital theme-accent"></i>
+            <span>Gesundheitstafel</span>
+        </div>
+
+    </aside>
+
+    <!-- Header Principal Gruvbox -->
+    <header class="sticky top-0 z-40 theme-card border-b-2 shadow-md transition-colors">
+        <div class="max-w-[1240px] mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+            
+            <!-- Izquierda: Menú Hamburguesa + Logo Gesundheitstafel Mockup SVG + Título -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <!-- Botón Menú Hamburguesa (Arriba a la Izquierda) -->
+                <button id="menuToggleBtn" onclick="toggleMenu()" title="Ver Índice de Charlas" class="px-3 py-2 rounded-xl theme-surface border-2 font-bold text-sm sm:text-base flex items-center gap-2 hover:border-[#af3a03] transition-all cursor-pointer shadow-sm">
+                    <i class="fa-solid fa-bars text-[#af3a03]"></i>
+                    <span class="hidden sm:inline text-xs font-bold uppercase tracking-wider">Índice</span>
+                </button>
+
+                <!-- Logo SVG Oficial de Gesundheitstafel de la carpeta Mockup -->
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="w-10 h-10 rounded-xl shadow-sm shrink-0">
+                        <rect width="120" height="120" rx="28" fill="#1d2021" stroke="#fe8019" stroke-width="3"/>
+                        <circle cx="60" cy="60" r="44" fill="#282828" stroke="#504945" stroke-width="2"/>
+                        <!-- Medical Cross with Soundwave pulses -->
+                        <path d="M52 36 h16 v16 h16 v16 h-16 v16 h-16 v-16 h-16 v-16 h16 z" fill="#fe8019"/>
+                        <circle cx="60" cy="60" r="6" fill="#fbf1c7"/>
+                        <path d="M26 60 Q34 46 42 60" stroke="#b8bb26" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                        <path d="M78 60 Q86 74 94 60" stroke="#83a598" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold leading-tight">Gesundheitstafel</h1>
+                        <span class="text-[11px] sm:text-xs font-bold theme-accent block -mt-1">Plataforma Médica Comunitaria</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Derecha: Selector de Tema Destacado (Claro / Oscuro) -->
+            <div class="flex items-center gap-3">
+                <button id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar Tema Claro/Oscuro" class="px-3.5 py-2 rounded-xl theme-surface border-2 font-bold text-xs sm:text-sm flex items-center gap-2 hover:border-[#af3a03] transition-all cursor-pointer shadow-sm">
+                    <i id="themeIcon" class="fa-solid fa-sun text-amber-500 text-base"></i>
+                    <span id="themeText" class="font-bold">Modo Claro</span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="w-full flex-grow py-8">
+        <div class="max-w-[1240px] mx-auto px-6">
+            
+            
+            <!-- Banner del Perfil Médico del Profesional -->
+            <div class="theme-card rounded-2xl p-6 sm:p-8 mb-10 border-2 flex flex-col md:flex-row items-center md:items-start gap-6 shadow-sm transition-colors">
+                <img src="perfil_medico.jpeg" alt="Foto del Profesional" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-[#af3a03] shadow-md shrink-0">
+                <div class="flex flex-col items-center md:items-start text-center md:text-left flex-grow">
+                    <h2 class="text-2xl sm:text-3xl font-bold leading-tight">
+                        Dr. Enrique Carrizo Barrera
+                    </h2>
+                    <div class="flex items-center gap-2.5 flex-wrap my-2"><span class="px-3.5 py-1 rounded-full theme-surface theme-accent font-bold text-xs border flex items-center gap-1.5 shadow-xs"><i class="fa-solid fa-stethoscope"></i> Pediatría</span><span class="px-3.5 py-1 rounded-full theme-surface text-xs font-bold border flex items-center gap-1.5 shadow-xs"><i class="fa-solid fa-id-card"></i> Mat. 0506</span></div>
+                    <p class="text-base theme-text-sec leading-relaxed max-w-3xl mt-1">
+                        Master en enfermedades endemicas.
+                    </p>
+                </div>
+            </div>
+        
+
+            <!-- Feed Dinámico de Cards de Charlas -->
+            <div id="cardsStream">
+                
+            <div class="theme-card p-12 rounded-2xl border-2 text-center flex flex-col items-center justify-center gap-4 shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-[#af3a03]/10 text-[#af3a03] flex items-center justify-center text-4xl font-bold mb-2">
+                    <i class="fa-solid fa-notes-medical"></i>
+                </div>
+                <h3 class="text-2xl font-bold">No hay consejos médicos publicados aún</h3>
+                <p class="theme-text-sec max-w-md text-base leading-relaxed">
+                    Complete los pasos en la aplicación <strong>Gesundheitstafel</strong> para crear y publicar sus primeros consejos de salud en esta cartelera digital.
+                </p>
+            </div>
+            
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Gruvbox -->
+    <footer class="theme-card border-t-2 py-6 text-center transition-colors">
+        <div class="max-w-[1240px] mx-auto px-6 text-sm theme-text-sec flex items-center justify-center gap-2">
+            <i class="fa-solid fa-heart-pulse theme-accent"></i>
+            <p>Gesundheitstafel • Diseñado para la lectura cómoda y la transmisión clara del conocimiento médico.</p>
+        </div>
+    </footer>
+
+    <script>
+        function getCardInfo(slug) {
+            const cardEl = document.getElementById('card-' + slug);
+            const titleEl = cardEl ? cardEl.querySelector('h2') : null;
+            const title = titleEl ? titleEl.textContent.trim() : 'Consejo Médico';
+            const baseUrl = window.location.href.split('#')[0];
+            const cardUrl = baseUrl + '#card-' + slug;
+            return { title, cardUrl };
+        }
+
+        function shareFacebook(slug) {
+            const info = getCardInfo(slug);
+            let shareUrl = info.cardUrl;
+            if (!shareUrl.startsWith('http://') && !shareUrl.startsWith('https://')) {
+                shareUrl = 'https://gesundheitstafel.com/index.html#card-' + slug;
+            }
+            const text = `miren el articulo ${shareUrl} sobre el tema ${info.title}`;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text);
+            }
+
+            const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(text)}`;
+            window.open(fbUrl, '_blank');
+        }
+
+        function shareWhatsApp(slug) {
+            const info = getCardInfo(slug);
+            const text = `miren el articulo ${info.cardUrl} sobre el tema ${info.title}`;
+            const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function copyShareLink(slug) {
+            const info = getCardInfo(slug);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(info.cardUrl).then(() => {
+                    alert(`¡Enlace directo a "${info.title}" copiado al portapapeles!\n\n${info.cardUrl}`);
+                }).catch(() => {
+                    fallbackCopy(info);
+                });
+            } else {
+                fallbackCopy(info);
+            }
+        }
+
+        function fallbackCopy(info) {
+            const tempInput = document.createElement('input');
+            tempInput.value = info.cardUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert(`¡Enlace directo a "${info.title}" copiado al portapapeles!\n\n${info.cardUrl}`);
+        }
+
+        function toggleMenu(forceState) {
+            const drawer = document.getElementById('sideDrawer');
+            const backdrop = document.getElementById('menuBackdrop');
+            if (!drawer || !backdrop) return;
+
+            const isOpen = drawer.classList.contains('translate-x-0');
+            const shouldOpen = forceState !== undefined ? forceState : !isOpen;
+
+            if (shouldOpen) {
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+                drawer.classList.remove('-translate-x-full');
+                drawer.classList.add('translate-x-0');
+            } else {
+                drawer.classList.remove('translate-x-0');
+                drawer.classList.add('-translate-x-full');
+                backdrop.classList.add('opacity-0');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('gt_theme') || 'light';
+            setTheme(savedTheme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('gt_theme', theme);
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (theme === 'dark') {
+                if (icon) icon.className = 'fa-solid fa-moon text-blue-300 text-base';
+                if (text) text.textContent = 'Modo Oscuro';
+            } else {
+                if (icon) icon.className = 'fa-solid fa-sun text-amber-500 text-base';
+                if (text) text.textContent = 'Modo Claro';
+            }
+        }
+
+        async function cargarPerfilDesdeTxt() {
+            try {
+                const resp = await fetch('perfil_medico.txt');
+                if (!resp.ok) return;
+                const contenido = await resp.text();
+                
+                let nombre = '';
+                let especialidad = '';
+                
+                const lineas = contenido.split('\n');
+                for (let l of lineas) {
+                    const linea = l.trim();
+                    if (linea.toLowerCase().startsWith('nombre:')) {
+                        nombre = linea.substring(7).trim();
+                    } else if (linea.toLowerCase().startsWith('especialidad:')) {
+                        especialidad = linea.substring(13).trim();
+                    }
+                }
+                
+                let badgeTexto = '';
+                if (especialidad && nombre) {
+                    badgeTexto = `Consejos de ${especialidad} dados por ${nombre}`;
+                } else if (especialidad) {
+                    badgeTexto = `Consejos de ${especialidad}`;
+                } else if (nombre) {
+                    badgeTexto = `Consejos de Salud dados por ${nombre}`;
+                }
+                
+                if (badgeTexto) {
+                    document.querySelectorAll('.card-doctor-badge').forEach(el => {
+                        el.textContent = badgeTexto;
+                    });
+                }
+            } catch (err) {
+                console.log('Carga en tiempo real de perfil_medico.txt diferida.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            cargarPerfilDesdeTxt();
+        });
+    </script>
+</body>
+</html>
