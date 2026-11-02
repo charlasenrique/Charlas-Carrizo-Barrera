@@ -98,13 +98,19 @@
         <!-- Lista de Charlas médicas -->
         <div class="flex-grow overflow-y-auto p-4 flex flex-col gap-2">
             <span class="text-xs font-bold theme-text-sec uppercase tracking-wider px-2 py-1">
-                Charlas Disponibles (0)
+                Charlas Disponibles (1)
             </span>
             
-            <div class="p-4 text-center theme-text-sec text-xs italic">
-                Sin charlas registradas.
-            </div>
-            
+                <a href="#card-bienvenida" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                    <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">BIENVENIDA</span>
+                        <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-circle-play text-[10px]"></i> Ver Video y Audio
+                        </span>
+                    </div>
+                </a>
+                
         </div>
 
         <!-- Pie del Drawer -->
@@ -179,16 +185,79 @@
             <!-- Feed Dinámico de Cards de Charlas -->
             <div id="cardsStream">
                 
-            <div class="theme-card p-12 rounded-2xl border-2 text-center flex flex-col items-center justify-center gap-4 shadow-sm">
-                <div class="w-20 h-20 rounded-full bg-[#af3a03]/10 text-[#af3a03] flex items-center justify-center text-4xl font-bold mb-2">
-                    <i class="fa-solid fa-notes-medical"></i>
-                </div>
-                <h3 class="text-2xl font-bold">No hay consejos médicos publicados aún</h3>
-                <p class="theme-text-sec max-w-md text-base leading-relaxed">
-                    Complete los pasos en la aplicación <strong>Gesundheitstafel</strong> para crear y publicar sus primeros consejos de salud en esta cartelera digital.
-                </p>
-            </div>
-            
+                <article id="card-bienvenida" class="scroll-mt-24 flex flex-col theme-card rounded-2xl border-2 shadow-sm overflow-hidden mb-10 transition-colors">
+                    <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        <!-- Columna Izquierda: Lectura y Texto Completo -->
+                        <div class="lg:col-span-7 flex flex-col gap-6">
+                            <div class="flex items-center justify-between gap-4 flex-wrap">
+                                <span class="px-3.5 py-1 rounded-full theme-surface theme-accent font-bold text-sm border flex items-center gap-2">
+                                    <i class="fa-solid fa-stethoscope"></i> <span class="card-doctor-badge">Consejos de Pediatría dados por Dr. Enrique Carrizo Barrera</span>
+                                </span>
+                                
+                                <!-- Botones para compartir en redes sociales con iconos FontAwesome -->
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <button onclick="shareFacebook('bienvenida')" title="Compartir en Facebook" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-facebook text-[#1877F2] text-sm"></i>
+                                        <span>Facebook</span>
+                                    </button>
+                                    <button onclick="shareWhatsApp('bienvenida')" title="Compartir por WhatsApp" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-whatsapp text-[#25D366] text-sm"></i>
+                                        <span>WhatsApp</span>
+                                    </button>
+                                    <button onclick="copyShareLink('bienvenida')" title="Copiar enlace" class="px-3.5 py-1.5 rounded-lg bg-[#af3a03] hover:bg-[#872a00] text-[#fbf1c7] font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-solid fa-link text-xs"></i>
+                                        <span>Enlace</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Título de la charla -->
+                            <h2 class="font-headline-lg text-2xl lg:text-3xl font-bold leading-snug">
+                                BIENVENIDA
+                            </h2>
+
+                            <!-- Texto completo del consejo -->
+                            <div class="theme-input p-6 rounded-xl border-l-4 border-[#af3a03] shadow-inner text-lg leading-relaxed whitespace-pre-wrap font-semibold">bienvenidos, en esta pagina voy a exponer mis charlas sobre temas de educacion para la salud de sus hijos.</div>
+                        </div>
+
+                        <!-- Columna Derecha: Reproductor de Video Educativo MP4 + Reproductor de Audio -->
+                        <div class="lg:col-span-5 flex flex-col gap-5">
+                            
+                            <!-- Video Player Box -->
+                            <div class="bg-[#282828] p-3.5 rounded-2xl border-2 border-[#bdae93] dark:border-[#504945] shadow-md flex flex-col gap-3">
+                                <div class="flex items-center justify-between px-2 text-xs font-bold text-[#ede679]">
+                                    <span class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-film text-[#fe8019]"></i> Video Educativo con Leyenda
+                                    </span>
+                                    <span class="bg-[#3c3836] px-2 py-0.5 rounded text-[#fbf1c7] flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-play text-xs text-[#b8bb26]"></i> HD 720p
+                                    </span>
+                                </div>
+                                <video controls preload="metadata" playsinline poster="bienvenida/imagen_bienvenida.jpeg" class="w-full rounded-xl aspect-video bg-[#000000] object-cover">
+                                    <source src="bienvenida/video_bienvenida.mp4" type="video/mp4">
+                                    Su navegador no soporta la reproducción de video MP4.
+                                </video>
+                            </div>
+
+                            <!-- Reproductor de Audio Grabado (Debajo del Video) -->
+                            <div class="p-4 rounded-xl theme-surface border flex flex-col gap-2 shadow-sm">
+                                <div class="flex items-center justify-between text-sm font-bold">
+                                    <span class="flex items-center gap-2 theme-accent">
+                                        <i class="fa-solid fa-microphone"></i> Audio Grabado por su Médico
+                                    </span>
+                                </div>
+                                <audio controls class="w-full mt-1">
+                                    <source src="bienvenida/audio_bienvenida.wav" type="audio/wav">
+                                    Su navegador no soporta el reproductor de audio.
+                                </audio>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+                
             </div>
 
         </div>
