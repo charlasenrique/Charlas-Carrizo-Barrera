@@ -98,11 +98,22 @@
         <!-- Lista de Charlas médicas -->
         <div class="flex-grow overflow-y-auto p-4 flex flex-col gap-2">
             <span class="text-xs font-bold theme-text-sec uppercase tracking-wider px-2 py-1">
-                Charlas Disponibles (4)
+                Charlas Disponibles (5)
             </span>
             
-                <a href="#card-tuberculosis-en-los-niños" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                <a href="#card-la-carne-1ra-parte" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
                     <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">LA CARNE (1ra parte)</span>
+                        <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-circle-play text-[10px]"></i> Ver Video y Audio
+                        </span>
+                    </div>
+                </a>
+                
+
+                <a href="#card-tuberculosis-en-los-niños" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                    <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
                     <div class="flex flex-col">
                         <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">Tuberculosis en los niños</span>
                         <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
@@ -113,17 +124,6 @@
                 
 
                 <a href="#card-consejo-médico-1" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
-                    <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
-                    <div class="flex flex-col">
-                        <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">Consejo Médico</span>
-                        <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
-                            <i class="fa-solid fa-circle-play text-[10px]"></i> Ver Video y Audio
-                        </span>
-                    </div>
-                </a>
-                
-
-                <a href="#card-consejo-médico" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
                     <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
                     <div class="flex flex-col">
                         <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">Consejo Médico</span>
@@ -134,8 +134,19 @@
                 </a>
                 
 
-                <a href="#card-bienvenida" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                <a href="#card-consejo-médico" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
                     <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">4</span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">Consejo Médico</span>
+                        <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-circle-play text-[10px]"></i> Ver Video y Audio
+                        </span>
+                    </div>
+                </a>
+                
+
+                <a href="#card-bienvenida" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                    <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">5</span>
                     <div class="flex flex-col">
                         <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">BIENVENIDA</span>
                         <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
@@ -218,6 +229,109 @@
             <!-- Feed Dinámico de Cards de Charlas -->
             <div id="cardsStream">
                 
+                <article id="card-la-carne-1ra-parte" class="scroll-mt-24 flex flex-col theme-card rounded-2xl border-2 shadow-sm overflow-hidden mb-10 transition-colors">
+                    <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        <!-- Columna Izquierda: Lectura y Texto Completo -->
+                        <div class="lg:col-span-7 flex flex-col gap-6">
+                            <div class="flex items-center justify-between gap-4 flex-wrap">
+                                <span class="px-3.5 py-1 rounded-full theme-surface theme-accent font-bold text-sm border flex items-center gap-2">
+                                    <i class="fa-solid fa-stethoscope"></i> <span class="card-doctor-badge">Consejos de Pediatría dados por Dr. Enrique Carrizo Barrera</span>
+                                </span>
+                                
+                                <!-- Botones para compartir en redes sociales con iconos FontAwesome -->
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <button onclick="shareFacebook('la-carne-1ra-parte')" title="Compartir en Facebook" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-facebook text-[#1877F2] text-sm"></i>
+                                        <span>Facebook</span>
+                                    </button>
+                                    <button onclick="shareWhatsApp('la-carne-1ra-parte')" title="Compartir por WhatsApp" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-whatsapp text-[#25D366] text-sm"></i>
+                                        <span>WhatsApp</span>
+                                    </button>
+                                    <button onclick="copyShareLink('la-carne-1ra-parte')" title="Copiar enlace" class="px-3.5 py-1.5 rounded-lg bg-[#af3a03] hover:bg-[#872a00] text-[#fbf1c7] font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-solid fa-link text-xs"></i>
+                                        <span>Enlace</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Título de la charla -->
+                            <h2 class="font-headline-lg text-2xl lg:text-3xl font-bold leading-snug">
+                                LA CARNE (1ra parte)
+                            </h2>
+
+                            <!-- Texto completo del consejo -->
+                            <div class="theme-input p-6 rounded-xl border-l-4 border-[#af3a03] shadow-inner text-lg leading-relaxed whitespace-pre-wrap font-semibold">EL MEDICO EN SU HOGAR Dr. Oscar E. Carrizo Barrera
+
+LA CARNE (1° parte)
+
+El tema de hoy va a ser la carne. 
+Es decir las enfermedades que podemos adquirir comemos came, que como todos sabemos, la carne, es un alimento muy importante por su alto contenido en proteinas y energia, fundamentales, para el crecimiento de las personas, en especial de los niños que se encuentran en desarrollo en sus primeras etapas de la vida.
+Sin embargo tambien puede acarrear problemas de salud, especialmente cuando no reune las condiciones minimas de sanidad e higiene.-
+Pueden ocurrir entonces, INTOXICACIONES ALIMENTARIAS, ENFERMEDADES PARASITARIAS E INFECCIOSAS tanto en niños como en adultos.
+O sea, que la carne, se puede convertir en un importante y peligroso vehiculo de gérmenes.
+Asi se pueden transmitir numerosas enfermedades, ya sea del propio animal o de la contaminacion del medio ambiente hacia estas carnes o por la deficiente manipulacion humana.
+Ahora nos ocuparemos de las enfermedades parasitarias transmitidas a través de la ingestion de carne. 
+Si hablamos de enfermedades parasitarias transmitidas por la carne, debemos hablar entonces de la TRIQUINOSIS, que es una parasitosis que afecta los musculos.
+Esta enfermedad, la triquinosis, es producida por un parasito de mas o menos de 3 a 4 mm y que llega a los niños o adultos por la ingestion de carne de animales parasitados, no cocinada correctamente, principalmente la carne de cerdo.
+Otra enfermedad parasitaria transmitida por la carne es LA HIDATIDOSIS, que ocurre cuando los perros enfermos con la tenia que produce esta enfermedad, eliminan con su materia fecal los quistes que terminan contaminando el agua y las verduras que tanto niños como adultos ingieren. 
+
+En el intestino de los humanos se liberan las larvas y emigran hacia el higado, los pulmones, los huesos, el riñon, el corazon, el sistema nervioso central y la tiroides.
+
+Los sintomas son variables y dependen del lugar donde se ubican el o los quistes hidatidicos.- 
+
+Otras enfermedades parasitarias transmitidas por las carnes son:  
+
+LAS TENIASIS Y LAS CISTICERCOSIS.
+
+Estas dos enfermedades se adquieren cuando se consumen los embutidos y carne de vacas 0 cerdos crudos o insuficientemente cocidos que contengan los cisticercos. Mucha precaucion hay que tener con los chorizos que deben estar perfectamente cocinados.
+
+En el caso de las TENIAS, estas pueden llegar a tener entre 2 y hasta 12 metros de largo, segun la tenia que se trate.- 
+Estos ejemplares de parasitos tan largos pueden también ocasionar los cuadros de obstruccion intestinal  y pueden provocar trastornos nerviosos, disgestivos y sanguineos. 
+en el caso de la CISTICERCOSIS, es mas grave el problema, porque pueden afectar centros  cerebrales imortantes y llegar a causar la nuerte.
+para finalizar recordemos: las enfermedades parasitarias que se pueden adquirir por la ingestion de la carne son, LA TRIQUINOSIS, LA HIDATIDOSIS, LAS ENIAS Y LA CISTICERCOSIS.
+como continuacion en charlas posteriores, veremos de enfermedades  infecciosas, no parasitarias ya, tambien transmitidas por la carne que ingerimos en condiciones no adecuadas.-</div>
+                        </div>
+
+                        <!-- Columna Derecha: Reproductor de Video Educativo MP4 + Reproductor de Audio -->
+                        <div class="lg:col-span-5 flex flex-col gap-5">
+                            
+                            <!-- Video Player Box -->
+                            <div class="bg-[#282828] p-3.5 rounded-2xl border-2 border-[#bdae93] dark:border-[#504945] shadow-md flex flex-col gap-3">
+                                <div class="flex items-center justify-between px-2 text-xs font-bold text-[#ede679]">
+                                    <span class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-film text-[#fe8019]"></i> Video Educativo con Leyenda
+                                    </span>
+                                    <span class="bg-[#3c3836] px-2 py-0.5 rounded text-[#fbf1c7] flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-play text-xs text-[#b8bb26]"></i> HD 720p
+                                    </span>
+                                </div>
+                                <video controls preload="metadata" playsinline poster="la-carne-1ra-parte/imagen_la-carne-1ra-parte.jpg" class="w-full rounded-xl aspect-video bg-[#000000] object-cover">
+                                    <source src="la-carne-1ra-parte/video_la-carne-1ra-parte.mp4" type="video/mp4">
+                                    Su navegador no soporta la reproducción de video MP4.
+                                </video>
+                            </div>
+
+                            <!-- Reproductor de Audio Grabado (Debajo del Video) -->
+                            <div class="p-4 rounded-xl theme-surface border flex flex-col gap-2 shadow-sm">
+                                <div class="flex items-center justify-between text-sm font-bold">
+                                    <span class="flex items-center gap-2 theme-accent">
+                                        <i class="fa-solid fa-microphone"></i> Audio Grabado por su Médico
+                                    </span>
+                                </div>
+                                <audio controls class="w-full mt-1">
+                                    <source src="la-carne-1ra-parte/audio_la-carne-1ra-parte.wav" type="audio/wav">
+                                    Su navegador no soporta el reproductor de audio.
+                                </audio>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+                
+
                 <article id="card-tuberculosis-en-los-niños" class="scroll-mt-24 flex flex-col theme-card rounded-2xl border-2 shadow-sm overflow-hidden mb-10 transition-colors">
                     <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                         
