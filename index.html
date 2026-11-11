@@ -98,11 +98,33 @@
         <!-- Lista de Charlas médicas -->
         <div class="flex-grow overflow-y-auto p-4 flex flex-col gap-2">
             <span class="text-xs font-bold theme-text-sec uppercase tracking-wider px-2 py-1">
-                Charlas Disponibles (1)
+                Charlas Disponibles (3)
             </span>
             
-                <a href="#card-bienvenida" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                <a href="#card-consejo-médico-1" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
                     <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">Consejo Médico</span>
+                        <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-circle-play text-[10px]"></i> Ver Video y Audio
+                        </span>
+                    </div>
+                </a>
+                
+
+                <a href="#card-consejo-médico" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                    <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">Consejo Médico</span>
+                        <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-circle-play text-[10px]"></i> Ver Video y Audio
+                        </span>
+                    </div>
+                </a>
+                
+
+                <a href="#card-bienvenida" onclick="toggleMenu(false)" class="p-3 rounded-xl theme-surface hover:border-[#af3a03] border transition-all flex items-start gap-3 group">
+                    <span class="w-6 h-6 rounded-md bg-[#af3a03] text-[#fbf1c7] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
                     <div class="flex flex-col">
                         <span class="font-bold text-sm group-hover:text-[#af3a03] leading-snug line-clamp-2">BIENVENIDA</span>
                         <span class="text-[11px] theme-text-sec flex items-center gap-1 mt-1">
@@ -185,6 +207,178 @@
             <!-- Feed Dinámico de Cards de Charlas -->
             <div id="cardsStream">
                 
+                <article id="card-consejo-médico-1" class="scroll-mt-24 flex flex-col theme-card rounded-2xl border-2 shadow-sm overflow-hidden mb-10 transition-colors">
+                    <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        <!-- Columna Izquierda: Lectura y Texto Completo -->
+                        <div class="lg:col-span-7 flex flex-col gap-6">
+                            <div class="flex items-center justify-between gap-4 flex-wrap">
+                                <span class="px-3.5 py-1 rounded-full theme-surface theme-accent font-bold text-sm border flex items-center gap-2">
+                                    <i class="fa-solid fa-stethoscope"></i> <span class="card-doctor-badge">Consejos de Pediatría dados por Dr. Enrique Carrizo Barrera</span>
+                                </span>
+                                
+                                <!-- Botones para compartir en redes sociales con iconos FontAwesome -->
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <button onclick="shareFacebook('consejo-médico-1')" title="Compartir en Facebook" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-facebook text-[#1877F2] text-sm"></i>
+                                        <span>Facebook</span>
+                                    </button>
+                                    <button onclick="shareWhatsApp('consejo-médico-1')" title="Compartir por WhatsApp" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-whatsapp text-[#25D366] text-sm"></i>
+                                        <span>WhatsApp</span>
+                                    </button>
+                                    <button onclick="copyShareLink('consejo-médico-1')" title="Copiar enlace" class="px-3.5 py-1.5 rounded-lg bg-[#af3a03] hover:bg-[#872a00] text-[#fbf1c7] font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-solid fa-link text-xs"></i>
+                                        <span>Enlace</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Título de la charla -->
+                            <h2 class="font-headline-lg text-2xl lg:text-3xl font-bold leading-snug">
+                                Consejo Médico
+                            </h2>
+
+                            <!-- Texto completo del consejo -->
+                            <div class="theme-input p-6 rounded-xl border-l-4 border-[#af3a03] shadow-inner text-lg leading-relaxed whitespace-pre-wrap font-semibold">TUBERCULOSIS EN LOS NIÑOS.
+El tema de hoy  es la tuberculosis en la infancia. La infección tuberculosa es causada por el bacilo de koch. Esta infección también existe la infancia y cualquier niño puede contraerla cuando está expuesto al contagio. 
+La tuberculosis adquirida por un niño a través del contagio de un adulto, es realmente grave. 
+Esto se debe a la resistencia y al aumento del poder patógeno que han adquirido los bacilos en estos casos. 
+Allí  la importancia de la detección precoz de los casos de tuberculosis, especialmente en los adultos que son los que van a transmitir la enfermedad. 
+De allí también, la importancia de aquellos adultos, con tuberculosis de realizar el tratamiento adecuado,  y de no abandonarlo  porque en estos casos, se crean las cepas de bacilos resistentes a los mejores medicamentos con que se cuentan la actualidad para el tratamiento de tuberculosis. 
+Generalmente es el adulto con tuberculosis el que contagia. Debido a la presencia de gran cantidad de bacilos en su saliva y en sus secreciones bronco pulmonares y que son eliminados por medio de la tos y de la espectoracion. 
+La mayoría de los veces los adultos son bacíliferos. Es decir, tienen bacilos en su saliva. En cambio, en el caso de los niños,  son poco o nada, bacilíferos. Por lo tanto es difícil el  contagio de un niño a otro niño o de un niño a un adulto. 
+En los casos de tuberculosis, aumenta cuando se trata de un primer contacto con el bacilo de koch. Cuando hay reactivaciones de una tuberculosis anterior, o cuando se trata de pacientes con tratatamientos que deprimen  su sistema defensivo, por ejemplo en los casos de los desnutridos, en los primeros años de la vida y en adolescencia y en los no vacunados. La tuberculosis infantil tiene un amplio predomino en los ambientes pobres en los países subdesarrollados, en los internados, en los cuarteles, etcétera. 
+En los niños pequeños y en los lactantes, el ambiente más importante es la familia. 
+Es frecuente descubrir un adulto con tuberculosis posteriormente al diagnóstico de tuberculosis en un niño. El contagio ocurre por las siguientes vías.: Vía respiratoria, la más frecuente produce la tuberculosis pulmonar. El adulto, como dijimos, hay gran cantidad de bacilos en su saliva y en su espectoración. el contagio tambien es por la via digestiva, es menos frecuente y produce la tuberculosis intestinal.
+Por la via cutanea o  mucosa, o sea por contaminación de heridas en la piel o contaminación de las mucosas en el caso de la conjunctiva en los ojos, o por injecciones con agujas contaminadas, produciendo en estos casos abcesos tuberculosos conjuntivitis tuberculosas, etcétera. 
+También el contagio ocurre por vía placentaria, es posible, es rara y es de extrema gravedad. O  cuando una mujer embarazada, padece de tuberculosis, produciendo en el recien nacido  neumonias tuberculosas o tuberculosis intestinal. El contagio ocurre también por vía del líquido amniotico, cuando este está contaminado con bacilos de koch, produciendo  entonces tuberculosis intestinal, o neomanias tuberculosas o hepatitis tuberculosas. 
+los síntomas pueden existir desde casos inaparentes hasta casos mortales. Las síntomas  varían según el sitio de localización de la enfermedad. 
+Generalmente hay tos y espectoracion, mal aspecto general, decaimiento general, adelgazamiento, fíebre por las tardes o por las noches, etcétera. 
+El riesgo de enfermar disminuye con, la búsqueda de los casos de tuberculosas en los adultos y con la vacunación con la vacuna BCG que proteje contra la tuberculosis en un 80 o 90% de los casos y que elimina una complicación gravísima en niños como es la meningitis tuberculosa. 
+La vacuna  debe aplicarse ante los 30 días de vida.  por hoy nada más y continuaremos con charlas similares de educacion para la salud.
+dr. oscar carrizo barrera.-</div>
+                        </div>
+
+                        <!-- Columna Derecha: Reproductor de Video Educativo MP4 + Reproductor de Audio -->
+                        <div class="lg:col-span-5 flex flex-col gap-5">
+                            
+                            <!-- Video Player Box -->
+                            <div class="bg-[#282828] p-3.5 rounded-2xl border-2 border-[#bdae93] dark:border-[#504945] shadow-md flex flex-col gap-3">
+                                <div class="flex items-center justify-between px-2 text-xs font-bold text-[#ede679]">
+                                    <span class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-film text-[#fe8019]"></i> Video Educativo con Leyenda
+                                    </span>
+                                    <span class="bg-[#3c3836] px-2 py-0.5 rounded text-[#fbf1c7] flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-play text-xs text-[#b8bb26]"></i> HD 720p
+                                    </span>
+                                </div>
+                                <video controls preload="metadata" playsinline poster="consejo-médico-1/imagen_consejo-médico-1.jpg" class="w-full rounded-xl aspect-video bg-[#000000] object-cover">
+                                    <source src="consejo-médico-1/video_consejo-médico-1.mp4" type="video/mp4">
+                                    Su navegador no soporta la reproducción de video MP4.
+                                </video>
+                            </div>
+
+                            <!-- Reproductor de Audio Grabado (Debajo del Video) -->
+                            <div class="p-4 rounded-xl theme-surface border flex flex-col gap-2 shadow-sm">
+                                <div class="flex items-center justify-between text-sm font-bold">
+                                    <span class="flex items-center gap-2 theme-accent">
+                                        <i class="fa-solid fa-microphone"></i> Audio Grabado por su Médico
+                                    </span>
+                                </div>
+                                <audio controls class="w-full mt-1">
+                                    <source src="consejo-médico-1/audio_consejo-médico-1.wav" type="audio/wav">
+                                    Su navegador no soporta el reproductor de audio.
+                                </audio>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+                
+
+                <article id="card-consejo-médico" class="scroll-mt-24 flex flex-col theme-card rounded-2xl border-2 shadow-sm overflow-hidden mb-10 transition-colors">
+                    <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        <!-- Columna Izquierda: Lectura y Texto Completo -->
+                        <div class="lg:col-span-7 flex flex-col gap-6">
+                            <div class="flex items-center justify-between gap-4 flex-wrap">
+                                <span class="px-3.5 py-1 rounded-full theme-surface theme-accent font-bold text-sm border flex items-center gap-2">
+                                    <i class="fa-solid fa-stethoscope"></i> <span class="card-doctor-badge">Consejos de Pediatría dados por Dr. Enrique Carrizo Barrera</span>
+                                </span>
+                                
+                                <!-- Botones para compartir en redes sociales con iconos FontAwesome -->
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <button onclick="shareFacebook('consejo-médico')" title="Compartir en Facebook" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-facebook text-[#1877F2] text-sm"></i>
+                                        <span>Facebook</span>
+                                    </button>
+                                    <button onclick="shareWhatsApp('consejo-médico')" title="Compartir por WhatsApp" class="px-3.5 py-1.5 rounded-lg theme-surface hover:border-[#af3a03] font-bold text-xs border transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-brands fa-whatsapp text-[#25D366] text-sm"></i>
+                                        <span>WhatsApp</span>
+                                    </button>
+                                    <button onclick="copyShareLink('consejo-médico')" title="Copiar enlace" class="px-3.5 py-1.5 rounded-lg bg-[#af3a03] hover:bg-[#872a00] text-[#fbf1c7] font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm cursor-pointer">
+                                        <i class="fa-solid fa-link text-xs"></i>
+                                        <span>Enlace</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Título de la charla -->
+                            <h2 class="font-headline-lg text-2xl lg:text-3xl font-bold leading-snug">
+                                Consejo Médico
+                            </h2>
+
+                            <!-- Texto completo del consejo -->
+                            <div class="theme-input p-6 rounded-xl border-l-4 border-[#af3a03] shadow-inner text-lg leading-relaxed whitespace-pre-wrap font-semibold">LOS TRAUMATISMOS DEL HIGADO EN LOS NIÑOS. 
+Los traumatismos o golpes en la zona del hígado pueden ocurrir a cualquiera. Incluso en un recién nacido; en estos también puede ocurrir y se da en el momento del parto. Pero lo más frecuente es que ocurran en los niños ya mayorcitos. 
+La mayoría de las veces, el antecedente de un traumatismo contuso en la zona  hepatica,  o sea en la parte superior derecha de abdomen o en la pared costal derecha, o en las zonas costillas, por una caída, por un golpe, por un accidente de automóvil, etc etc. 
+Usted debe tener estos conocimientos, una lesión o una rotura del hígado, es algo, realmente grave, e importante y constituye una urgencia muchas veces quirurgica. 
+El niño debe ser trasladado en forma urgente a la sala de cirugía sin perdida de tiempo. Una lesión o una rotura del hígado conduce a una hemorragia interna muy importante, que incluso puede puede ser de mucha gravedad. Ninguna persona está exenta de sufrir este tipo de accidentes, y son los niños, los más propensos.
+Por su constante actividad física durante todo el día. Por lo tanto, el  niño debe tener sus horas de juego, debe tener sus horas de estudio, sus horas de descanzo y toda la información posible respecto del cuidado que debe tener, de la precaución, de la prudencia, de los riesgos que a que se someten, en  los distintos tipos de accidentes que puede evitar etcétera, etcétera. 
+Un simple traumatismo, de los múltiples, que ocurren durante el día en sus hijos, puede llegar a lesionarse, tanto al bazo como el lígado y la lesión de estos siempre es es cosa seria y la mayoría de las veces se termina en la sala de cirugía. 
+Debe enseñarse de tareas o juegos educativos, tareas o juegos no violentes con pocos riesgos, tener cuidado con las bicicletas, con las motos y moto, y algunos deportes, como ser a rugby , entre otros, en los cuales puede ocurrir golpes en el abdomen. Por último, debe prestarse siempre atención al niño, cuando este les refiere un golpe en alguna zona del cuerpo, por más mínimo que sea y especialmente si este golpe fue en su abdomen. No debe menospreciarlo y si es necesario hacer la consulta con el profesional. Usted, luego de esta chara, está ya al tanto de lo que puedo ocurrir, de lo que puede prevenir y de lo que puede costar un simple golpe y lo que tiene que enseñar a sus hijos. Por hoy nada más y si Dios quiere estarémos con otras charlas de educacion para la salud. dr oscar carrizo barrera.</div>
+                        </div>
+
+                        <!-- Columna Derecha: Reproductor de Video Educativo MP4 + Reproductor de Audio -->
+                        <div class="lg:col-span-5 flex flex-col gap-5">
+                            
+                            <!-- Video Player Box -->
+                            <div class="bg-[#282828] p-3.5 rounded-2xl border-2 border-[#bdae93] dark:border-[#504945] shadow-md flex flex-col gap-3">
+                                <div class="flex items-center justify-between px-2 text-xs font-bold text-[#ede679]">
+                                    <span class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-film text-[#fe8019]"></i> Video Educativo con Leyenda
+                                    </span>
+                                    <span class="bg-[#3c3836] px-2 py-0.5 rounded text-[#fbf1c7] flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-play text-xs text-[#b8bb26]"></i> HD 720p
+                                    </span>
+                                </div>
+                                <video controls preload="metadata" playsinline poster="consejo-médico/imagen_consejo-médico.jpg" class="w-full rounded-xl aspect-video bg-[#000000] object-cover">
+                                    <source src="consejo-médico/video_consejo-médico.mp4" type="video/mp4">
+                                    Su navegador no soporta la reproducción de video MP4.
+                                </video>
+                            </div>
+
+                            <!-- Reproductor de Audio Grabado (Debajo del Video) -->
+                            <div class="p-4 rounded-xl theme-surface border flex flex-col gap-2 shadow-sm">
+                                <div class="flex items-center justify-between text-sm font-bold">
+                                    <span class="flex items-center gap-2 theme-accent">
+                                        <i class="fa-solid fa-microphone"></i> Audio Grabado por su Médico
+                                    </span>
+                                </div>
+                                <audio controls class="w-full mt-1">
+                                    <source src="consejo-médico/audio_consejo-médico.wav" type="audio/wav">
+                                    Su navegador no soporta el reproductor de audio.
+                                </audio>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+                
+
                 <article id="card-bienvenida" class="scroll-mt-24 flex flex-col theme-card rounded-2xl border-2 shadow-sm overflow-hidden mb-10 transition-colors">
                     <div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                         
